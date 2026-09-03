@@ -3,7 +3,9 @@ import type { Database, User } from "../types.js";
 export const demoUsers: User[] = [
   { id: "u-1", name: "Admin User", email: "admin@fastonmed.com", password: "admin123", role: "Admin" },
   { id: "u-2", name: "Fuhad P K", email: "fuhad@fastonmed.com", password: "growth123", role: "Growth Head" },
-  { id: "u-3", name: "Arjun Menon", email: "arjun.menon@fastonmed.com", password: "sales123", role: "Sales Manager" }
+  { id: "u-3", name: "Arjun Menon", email: "arjun.menon@fastonmed.com", password: "sales123", role: "Sales Manager" },
+  { id: "u-4", name: "Vijay Krishnan", email: "vijay@fastonmed.com", password: "director123", role: "Director" },
+  { id: "u-5", name: "Rahul Kumar", email: "rahul.kumar@fastonmed.com", password: "tech123", role: "Biomedical Engineer" }
 ];
 
 export const seedDatabase: Database = {
