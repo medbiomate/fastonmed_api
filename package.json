@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "tsx watch src/server.ts",
     "build": "tsc",
-    "start": "node dist/server.js",
+    "start": "node server.js",
     "seed": "tsx src/scripts/seed.ts"
   },
   "dependencies": {
@@ -26,5 +26,6 @@
     "tsx": "^4.20.5",
     "typescript": "^5.9.2"
   },
-  "devDependencies": {}
+  "devDependencies": {},
+  "main": "server.js"
 }
