@@ -2,7 +2,7 @@ import "dotenv/config";
 export const config = {
     port: Number(process.env.PORT || 4000),
     nodeEnv: process.env.NODE_ENV || "development",
-    corsOrigins: (process.env.CORS_ORIGIN || "https://crm.fastonmed.com,http://localhost:3002,http://localhost:3001,http://localhost:3000")
+    corsOrigins: (process.env.CORS_ORIGIN || "https://fastonmed.com,https://www.fastonmed.com,https://crm.fastonmed.com,http://localhost:3002,http://localhost:3001,http://localhost:3000")
         .split(",")
         .map((origin) => origin.trim())
         .filter(Boolean),

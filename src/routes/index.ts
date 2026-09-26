@@ -32,7 +32,12 @@ apiRouter.use("/employees", createCrudRouter("employees"));
 apiRouter.use("/invoices", createCrudRouter("invoices"));
 apiRouter.use("/zoho", zohoRouter);
 
-apiRouter.post("/admin/reset", async (_req, res) => {
+apiRouter.post("/admin/reset", async (req, res) => {
+  const secretKey = req.headers["x-admin-reset-key"] || req.query.key;
+  if (!process.env.ADMIN_RESET_KEY || secretKey !== process.env.ADMIN_RESET_KEY) {
+    res.status(403).json({ success: false, error: "Database reset is protected and disabled in production" });
+    return;
+  }
   const db = await resetDb();
   ok(res, {
     clients: db.clients.length,
