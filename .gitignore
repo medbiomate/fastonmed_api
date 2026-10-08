@@ -4,3 +4,5 @@ data/*.json
 .env.local
 npm-debug.log*
 .DS_Store
+
+data/*.bak

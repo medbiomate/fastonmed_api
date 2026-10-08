@@ -15,8 +15,9 @@ async function ensureDatabaseFile() {
   await mkdir(dataDir, { recursive: true });
   try {
     await readFile(dataFile, "utf8");
-  } catch {
-    await writeFile(dataFile, JSON.stringify(seedDatabase, null, 2));
+  } catch (error) {
+    if ((error as NodeJS.ErrnoException).code !== "ENOENT") throw error;
+    await writeFile(dataFile, JSON.stringify(seedDatabase, null, 2), { flag: "wx" });
   }
 }
 

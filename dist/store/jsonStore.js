@@ -12,8 +12,10 @@ async function ensureDatabaseFile() {
     try {
         await readFile(dataFile, "utf8");
     }
-    catch {
-        await writeFile(dataFile, JSON.stringify(seedDatabase, null, 2));
+    catch (error) {
+        if (error.code !== "ENOENT")
+            throw error;
+        await writeFile(dataFile, JSON.stringify(seedDatabase, null, 2), { flag: "wx" });
     }
 }
 export async function readDb() {
